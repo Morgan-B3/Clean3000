@@ -80,7 +80,7 @@ export const NewNotice = () => {
             observation: value,
         }))
     }
-
+    console.log(notice);
 
     const redirect = ()=>{
         dispatch(addNotice(notice))
@@ -96,11 +96,13 @@ export const NewNotice = () => {
             }))
             dispatch(addClient(newClient));
         }
-        setNotice({
-            id,
-            date,
-            observation: observation || "Pas d'observations.",
-        })
+        if(observation===""){
+            setNotice(prevState=>({
+                ...prevState,
+                observation: "Pas d'observations.",
+            }));
+        }
+        
 
         console.log(notice);
         redirect();
@@ -159,7 +161,7 @@ export const NewNotice = () => {
                         </div>
                     </div>
 
-                    <input className='btn add' type="submit" value="Enregistrer" />
+                    <button className='add' type="submit">Enrgistrer</button>
 
                 </form>
             </div>

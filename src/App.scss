@@ -4,10 +4,12 @@
 
 html {
   font-size: 62.5%;
+
 }
 
 body {
   font-size: 1.6rem;
+  background-color: #deeedb;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -39,7 +41,6 @@ main{
   flex-direction: column;
   gap: 5rem;
   justify-content: space-evenly;
-  background-color: white;
 }
 
 
@@ -56,11 +57,14 @@ b{
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  text-wrap: wrap;
+  word-wrap: break-word;
   input, textarea, select {
     width: 100%;
     padding: 10px;
   }
 }
+
 
 .field{
   display: flex;
@@ -124,6 +128,7 @@ button, .btn{
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  transition: all 200ms;
 }
 
 .delete{
@@ -167,6 +172,7 @@ button, .btn{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 200ms;
   div{
     display: flex;
     gap: 1rem;
@@ -188,7 +194,7 @@ button, .btn{
   }
 }
 
-@media screen and (min-width: 1199px) {
+@media screen and (min-width: 1000px) {
   main {
     padding: 5rem 30rem;
     position: relative;
@@ -205,6 +211,12 @@ button, .btn{
     >*{
       width: 50%;
     }
+  }
+  button, .btn{
+    width: fit-content;
+    padding: 2rem;
+    margin: auto;
+    gap: 2rem;
   }
   .add{
     top: -12.5%;
