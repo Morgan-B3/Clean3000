@@ -35,7 +35,7 @@ const Home = () => {
     return (
         <Layout isHome={true}>
             <h1>Récapitulatif</h1>
-            <button className='add ' onClick={()=>navigate(`/nouvel-avis`)}>Nouvel avis<FaPlusCircle className='icon' size={40} /></button>
+            <button className='add responsive-btn' onClick={()=>navigate(`/nouvel-avis`)}>Nouvel avis<FaPlusCircle className='icon' size={40} /></button>
             <section className='noticeList'>
                 {notices.length ? noticesList : <span className='empty'>Aucun avis pour le moment</span>}
             </section>

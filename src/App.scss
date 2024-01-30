@@ -48,6 +48,7 @@ main{
   flex-direction: column;
   gap: 5rem;
   justify-content: space-evenly;
+  position: relative;
 }
 
 
@@ -237,9 +238,10 @@ button{
   }
   .responsive-btn{
     position: absolute;
-    right: 8%;
-    width: 20%;
-    padding: 1rem 0;
+    right: 2rem;
+    top: -9rem;
+    width: fit-content;
+    padding: 1rem;
   }
   .responsive-container{
     flex-direction: row;
@@ -256,19 +258,12 @@ button{
     margin: auto;
     gap: 2rem;
   }
-  .add{
-    top: -12.5%;
-  }
-  .delete{
-    top: -18.2%;
-  }
   .flex-50{
     justify-content: space-between;
     div{
       width: fit-content;
     }
   }
-
 
 }
 
@@ -279,6 +274,9 @@ button{
   }
   .back-button{
     left: 10rem;
+  }
+  .responsive-btn{
+    right: 10rem;
   }
   .form-bottom{
     flex-direction: row;

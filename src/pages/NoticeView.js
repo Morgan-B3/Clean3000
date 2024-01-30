@@ -67,7 +67,7 @@ const NoticeView = () => {
                         </div>
                     </div>
 
-                    <button className='delete ' onClick={showModal}>Supprimer<FaMinusCircle size={40} /></button>
+                    <button className='delete responsive-btn' onClick={showModal}>Supprimer<FaMinusCircle size={40} /></button>
                     <Modal title="Supprimer cet élément ?" open={isModalOpen} onCancel={handleCancel}footer={null} centered >
                         <div className='modal-content'>
                             <button className='delete' onClick={()=>handleClick()}>Oui</button>
