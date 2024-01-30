@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+header {
+  background-color: #3D3D3D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 1rem;
+}
+
+
+main{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+h1{
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  form input, textarea {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+}
