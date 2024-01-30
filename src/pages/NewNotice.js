@@ -160,7 +160,7 @@ export const NewNotice = () => {
                         </div>
                     </div>
 
-                    <button className='add' type="submit">Enrgistrer</button>
+                    <button className='add' type="submit">Enrgistrer<FaPlusCircle className='icon' size={40} /></button>
 
                 </form>
             </div>
