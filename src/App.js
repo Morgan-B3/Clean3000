@@ -9,10 +9,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<NewNotice/>}/>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/nouvel-avis' element={<NewNotice/>}/>
         <Route path='/avis/:id' element={<NoticeView/>}/>
-        {/* <Route path='/nouvel-avis/:id' element={<NewNotice/>}/> */}
-        {/* <Route path='/' element={<Home/>}/> */}
       </Routes>
     </BrowserRouter>
   );

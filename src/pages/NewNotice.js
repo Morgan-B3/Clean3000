@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addClient, addNotice } from '../slices';
+import { FaPlusCircle } from "react-icons/fa";
 
 export const NewNotice = () => {
     
@@ -81,12 +82,11 @@ export const NewNotice = () => {
                     <div className='container'>
                         <div className='container'>
 
-
                             <div className='field'>
-                                <label htmlFor="">Nom du client / Entreprise :</label>
-                                <select name="" id="" onChange={(e)=>handleChange(e)} required >
+                                <label htmlFor="client">Nom du client / Entreprise :</label>
+                                <select name="client" id="client" onChange={(e)=>handleChange(e)} required >
                                     <option value="">Choisir un client</option>
-                                    <option value="new">Nouveau client</option>
+                                    <option className="add" value="new">Nouveau client</option>
                                     {clientsOptions}
                                 </select>
                             </div>
@@ -94,40 +94,42 @@ export const NewNotice = () => {
 
                             { isNewClient ? 
                             <div className='field'>
-                                <label htmlFor="">Saisir le nom du nouveau client / entreprise :</label>
-                                <input type="text" value={newClient} onChange={(e)=>setNewClient(e.target.value)} required />
+                                <label htmlFor="newClient">Saisir le nom du nouveau client / entreprise :</label>
+                                <input id='newClient' name='newClient' type="text" value={newClient} onChange={(e)=>setNewClient(e.target.value)} required />
                             </div> 
                             : "" }
                         </div>
 
 
                         <div className='field'>
-                            <label htmlFor="">Date d'intervention :</label>
-                            <input type="date" value={date} onChange={(e)=>setDate(e.target.value)} required />
+                            <label htmlFor="date">Date d'intervention :</label>
+                            <input id='date' name='date' type="date" value={date} onChange={(e)=>setDate(e.target.value)} required />
                         </div>
                     </div>
 
 
                     <div className='field'>
-                        <label htmlFor="">Observations :</label>
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Pas d'obeservations." value={observation} onChange={(e)=>setObservation(e.target.value)}></textarea>
+                        <label htmlFor="observations">Observations :</label>
+                        <textarea name="observations" id="observations" cols="30" rows="10" placeholder="Pas d'obeservations." value={observation} onChange={(e)=>setObservation(e.target.value)}></textarea>
                     </div>
 
 
-                    <div>
-                        <div className='field'>
-                            <label htmlFor="">Signature du technicien :
+                    <div className='flex-evenly'>
+                        <div className='field text-center'>
+                            <label htmlFor="signature1">Signature du technicien :
                             </label>
-                            <input type="text" />
+                            <input id='signature1' name='signature1' className='sign' type="text" />
                         </div>
-                        <div className='field'>
-                            <label htmlFor="">Signature du client /<br/>Cachet de l'entrprise :</label>
-                            <input type="text" />
+                        <div className='field text-center'>
+                            <label htmlFor="signature2">Signature du client /<br/>Cachet de l'entrprise :</label>
+                            <input id='signature2' name='signature2' className='sign' type="text" />
                         </div>
                     </div>
 
-
-                    <input type="submit" value="Enregistrer" />
+                    <div className='btn add'>
+                        <input className='btn add' type="submit" value="Enregistrer" />
+                        <FaPlusCircle  size={40} />
+                    </div>
 
 
                 </form>
