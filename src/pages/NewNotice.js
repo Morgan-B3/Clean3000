@@ -152,11 +152,11 @@ export const NewNotice = () => {
                         <div className='field text-center'>
                             <label htmlFor="signature1">Signature du technicien* :
                             </label>
-                            <input id='signature1' name='signature1' className='sign' type="text" />
+                            <div className='sign' id='signature1' name='signature1'></div>
                         </div>
                         <div className='field text-center'>
                             <label htmlFor="signature2">Signature du client /<br/>Cachet de l'entrprise* :</label>
-                            <input id='signature2' name='signature2' className='sign' type="text" />
+                            <div className='sign' id='signature2' name='signature2'></div>
                         </div>
                     </div>
 
