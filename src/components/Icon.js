@@ -8,7 +8,8 @@ const names = {
 const Icon = ({name, size, className, action}) => {
     const iconType = names[name];
     return (
-    <iconType size={size} className={className} onClick={action} />
+    // <iconType size={size} className={className} onClick={action} />
+    <div></div>
   )
 }
 
