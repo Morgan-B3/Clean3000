@@ -22,6 +22,14 @@ header {
   justify-content: center;
   color: white;
   padding: 1rem;
+  position: relative;
+  .back-button{
+    position: absolute;
+    left: 5rem;
+  }
+  .back-button:hover, img:hover{
+    cursor: pointer;
+  }
 }
 
 
