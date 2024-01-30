@@ -1,13 +1,17 @@
 import Layout from '../components/Layout'
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FaMinusCircle } from "react-icons/fa";
+import { Modal } from 'antd';
+import { removeNotice } from '../slices';
 
 
 const NoticeView = () => {
 
     const { id } = useParams();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(()=> {
         document.title = `Avis n°${id}`;
@@ -16,8 +20,18 @@ const NoticeView = () => {
     const notices = useSelector(state => state.data.notices);
     const notice = notices.find((notice) => notice.id == id);
 
-    console.log(notice);
-    console.log(id);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+    const handleCancel = () => {
+      setIsModalOpen(false);
+    };
+
+    const handleClick = () => {
+        dispatch(removeNotice(notice.id));
+        navigate('/');
+    }
 
     return (
         <Layout>
@@ -49,7 +63,13 @@ const NoticeView = () => {
                 </div>
             </div>
 
-            <button className='delete responsive-btn'>Supprimer<FaMinusCircle size={40} /></button>
+            <button className='delete responsive-btn' onClick={showModal}>Supprimer<FaMinusCircle size={40} /></button>
+            <Modal title="Supprimer cet élément ?" open={isModalOpen} onCancel={handleCancel}footer={null} >
+                <div className='modal-content'>
+                    <button className='delete' onClick={()=>handleClick()}>Oui</button>
+                    <button className='blue' onClick={()=>handleCancel()} >Non</button>
+                </div>
+            </Modal>
         </Layout>
     )
 }

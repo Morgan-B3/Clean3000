@@ -23,10 +23,15 @@ const dataSlice = createSlice({
         addClient: (state, {payload}) => {
             state.clients.push(payload);
             localStorage.setItem("clients", JSON.stringify([...state.clients]));
+        },
+        removeNotice: (state, {payload}) => {
+            const index = state.notices.findIndex(notice => notice.id == payload);
+            state.notices.splice(payload, 1);
+            localStorage.setItem("notices", JSON.stringify([...state.notices]));
         }
     }
 })
 
-export const { addNotice, addClient } = dataSlice.actions;
+export const { addNotice, addClient, removeNotice } = dataSlice.actions;
 
 export default dataSlice.reducer;

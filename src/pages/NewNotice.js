@@ -36,7 +36,7 @@ export const NewNotice = () => {
         id: Date.now(),
         client: "",
         date,
-        observation: observation || "Pas d'observations.",
+        observation: "Pas d'observations.",
     });
 
     const clientsOptions = clients.map((client, index) => {
@@ -58,32 +58,40 @@ export const NewNotice = () => {
         }
     }
 
+    const redirect = ()=>{
+        dispatch(addNotice(notice))
+        navigate(`/avis/${notice.id}`)
+    }
+
     const validate = (e)=>{
         e.preventDefault();
-        const secure = prompt("Avez vous terminé ? O/N");
-        if (secure === "O" || secure === "o"){
-            if(isNewClient){
-                dispatch(addClient(newClient));
-                setNotice(prevState=>({
-                    ...prevState,
-                    client: newClient
-                }))
-            }
-            dispatch(addNotice(notice))
-            navigate(`/avis/${notice.id}`)
+        if(isNewClient){
+            setNotice(prevState=>({
+                ...prevState,
+                client: newClient
+            }))
+            dispatch(addClient(newClient));
         }
+        setNotice(prevState=>({
+            ...prevState,
+            observation
+        }))
+
+        console.log(observation);
+        redirect();
     }
+
 
     return (
         <Layout>
             <h1>Avis de passage</h1>
             <div >
                 <form action="" className='container' onSubmit={(e)=>validate(e)}>
-                    <div className='container'>
+                    <div className='container responsive-container'>
                         <div className='container'>
 
                             <div className='field'>
-                                <label htmlFor="client">Nom du client / Entreprise :</label>
+                                <label htmlFor="client">Nom du client / Entreprise* :</label>
                                 <select name="client" id="client" onChange={(e)=>handleChange(e)} required >
                                     <option value="">Choisir un client</option>
                                     <option className="add" value="new">Nouveau client</option>
@@ -94,7 +102,7 @@ export const NewNotice = () => {
 
                             { isNewClient ? 
                             <div className='field'>
-                                <label htmlFor="newClient">Saisir le nom du nouveau client / entreprise :</label>
+                                <label htmlFor="newClient">Saisir le nom du nouveau client / entreprise* :</label>
                                 <input id='newClient' name='newClient' type="text" value={newClient} onChange={(e)=>setNewClient(e.target.value)} required />
                             </div> 
                             : "" }
@@ -102,7 +110,7 @@ export const NewNotice = () => {
 
 
                         <div className='field'>
-                            <label htmlFor="date">Date d'intervention :</label>
+                            <label htmlFor="date">Date d'intervention* :</label>
                             <input id='date' name='date' type="date" value={date} onChange={(e)=>setDate(e.target.value)} required />
                         </div>
                     </div>
@@ -116,21 +124,17 @@ export const NewNotice = () => {
 
                     <div className='flex-evenly'>
                         <div className='field text-center'>
-                            <label htmlFor="signature1">Signature du technicien :
+                            <label htmlFor="signature1">Signature du technicien* :
                             </label>
                             <input id='signature1' name='signature1' className='sign' type="text" />
                         </div>
                         <div className='field text-center'>
-                            <label htmlFor="signature2">Signature du client /<br/>Cachet de l'entrprise :</label>
+                            <label htmlFor="signature2">Signature du client /<br/>Cachet de l'entrprise* :</label>
                             <input id='signature2' name='signature2' className='sign' type="text" />
                         </div>
                     </div>
 
-                    <div className='btn add'>
-                        <input className='btn add' type="submit" value="Enregistrer" />
-                        <FaPlusCircle  size={40} />
-                    </div>
-
+                    <input className='btn add' type="submit" value="Enregistrer" />
 
                 </form>
             </div>
