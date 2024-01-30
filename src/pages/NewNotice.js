@@ -68,6 +68,7 @@ export const NewNotice = () => {
     }
 
     const handleChangeDate = (value)=>{
+        setDate(value);
         setNotice(prevState =>({
             ...prevState,
             date: value,
@@ -75,12 +76,13 @@ export const NewNotice = () => {
     }
 
     const handleChangeObservation = (value) =>{
+        setObservation(value);
         setNotice(prevState=>({
             ...prevState,
             observation: value,
         }))
     }
-    console.log(notice);
+    
 
     const redirect = ()=>{
         dispatch(addNotice(notice))
@@ -96,14 +98,11 @@ export const NewNotice = () => {
             }))
             dispatch(addClient(newClient));
         }
-        if(observation===""){
-            setNotice(prevState=>({
-                ...prevState,
-                observation: "Pas d'observations.",
-            }));
-        }
-        
-
+      
+        setNotice(prevState=>({
+            ...prevState,
+            observation: observation || "Pas d'observations.",
+        }));
         console.log(notice);
         redirect();
     }

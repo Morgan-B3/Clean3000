@@ -26,7 +26,7 @@ const dataSlice = createSlice({
         },
         removeNotice: (state, {payload}) => {
             const index = state.notices.findIndex(notice => notice.id == payload);
-            state.notices.splice(payload, 1);
+            state.notices.splice(index, 1);
             localStorage.setItem("notices", JSON.stringify([...state.notices]));
         }
     }
