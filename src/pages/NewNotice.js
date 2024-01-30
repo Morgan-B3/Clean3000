@@ -148,19 +148,21 @@ export const NewNotice = () => {
                     </div>
 
 
-                    <div className='flex-evenly'>
-                        <div className='field text-center'>
-                            <label htmlFor="signature1">Signature du technicien* :
-                            </label>
-                            <div className='sign' id='signature1' name='signature1'></div>
+                    <div className='form-bottom'>
+                        <div className='flex-evenly'>
+                            <div className='field text-center'>
+                                <label htmlFor="signature1">Signature du technicien* :
+                                </label>
+                                <div className='sign' id='signature1' name='signature1'></div>
+                            </div>
+                            <div className='field text-center'>
+                                <label htmlFor="signature2">Signature du client /<br/>Cachet de l'entrprise* :</label>
+                                <div className='sign' id='signature2' name='signature2'></div>
+                            </div>
                         </div>
-                        <div className='field text-center'>
-                            <label htmlFor="signature2">Signature du client /<br/>Cachet de l'entrprise* :</label>
-                            <div className='sign' id='signature2' name='signature2'></div>
-                        </div>
-                    </div>
 
-                    <button className='add' type="submit">Enrgistrer<FaPlusCircle className='icon' size={40} /></button>
+                        <button className='add' type="submit">Enrgistrer<FaPlusCircle className='icon' size={40} /></button>
+                    </div>
 
                 </form>
             </div>

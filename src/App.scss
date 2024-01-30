@@ -25,13 +25,20 @@ header {
   color: white;
   padding: 1rem;
   position: relative;
-  .back-button{
-    position: absolute;
-    left: 5rem;
-  }
-  .back-button:hover, img:hover{
-    cursor: pointer;
-  }
+}
+.back-button{
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+}
+.back-button:hover, img:hover{
+  cursor: pointer;
+}
+
+.back{
+  visibility: hidden;
+  font-size: 4rem;
 }
 
 
@@ -62,7 +69,14 @@ b{
   input, textarea, select {
     width: 100%;
     padding: 10px;
+    border-radius: 1rem;
+    border: solid 1px #666666 ;
   }
+}
+
+input, textarea, select, .sign {
+  border-radius: 1rem;
+  border: solid 1px #666666 ;
 }
 
 
@@ -97,8 +111,21 @@ textarea{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  p, b {
-    width: 50%;
+  gap: 2rem;
+  div {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+  }
+}
+
+.form-bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  div{
+    flex: 1;
   }
 }
 
@@ -116,9 +143,12 @@ textarea{
 }
 .text-center{
   text-align: center;
+  div{
+    margin: auto;
+  }
 }
 
-button, .btn{
+button{
   border: none;
   border-radius: 1rem;
   padding: 1rem;
@@ -176,6 +206,7 @@ button, .btn{
   transition: all 200ms;
   div{
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
   &:hover{
@@ -195,9 +226,13 @@ button, .btn{
   }
 }
 
-@media screen and (min-width: 1000px) {
+.empty{
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
   main {
-    padding: 5rem 30rem;
+    padding: 5rem 15rem;
     position: relative;
   }
   .responsive-btn{
@@ -206,14 +241,16 @@ button, .btn{
     width: 20%;
     padding: 1rem 0;
   }
-
   .responsive-container{
     flex-direction: row;
     >*{
       width: 50%;
     }
   }
-  button, .btn{
+  .back{
+    visibility: visible;
+  }
+  button{
     width: fit-content;
     padding: 2rem;
     margin: auto;
@@ -225,18 +262,25 @@ button, .btn{
   .delete{
     top: -18.2%;
   }
-
   .flex-50{
-    gap: 0 5rem ;
-    justify-content: center;
-    p,b{
-      width: 40%;
+    justify-content: space-between;
+    div{
+      width: fit-content;
     }
-    p{
-      text-align: right;
-    }
-    b{
-      text-align: left;
-    }
+  }
+
+
+}
+
+@media screen and (min-width: 1300px) {
+  main {
+    padding: 5rem 30rem;
+    position: relative;
+  }
+  .back-button{
+    left: 10rem;
+  }
+  .form-bottom{
+    flex-direction: row;
   }
 }

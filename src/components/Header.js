@@ -7,7 +7,7 @@ const Header = ({isHome = false}) => {
 
   return (
     <header>
-        {!isHome ? <BiLeftArrowAlt size="8rem" className="back-button" onClick={() => navigate('/')} /> : ""}
+        {!isHome ? <div className="back-button" onClick={() => navigate('/')} ><BiLeftArrowAlt size="8rem"/><span className='back'>Retour</span></div> : ""}
         <div>
             <img src={require("../img/logo-clean3000-transparent.png")} alt="" onClick={()=>navigate('/')} />
         </div>

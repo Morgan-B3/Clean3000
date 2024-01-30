@@ -24,6 +24,8 @@ const Home = () => {
                     <p>Avis n°{notice.id}</p>
                     <p>-</p>
                     <p>{notice.client}</p>
+                    <p>-</p>
+                    <p>{notice.date}</p>
                 </div>
                 <RiArrowRightSLine size={35} color='white' />
             </span>
@@ -35,7 +37,7 @@ const Home = () => {
             <h1>Récapitulatif</h1>
             <button className='add ' onClick={()=>navigate(`/nouvel-avis`)}>Nouvel avis<FaPlusCircle className='icon' size={40} /></button>
             <section className='noticeList'>
-                {noticesList}
+                {notices.length ? noticesList : <span className='empty'>Aucun avis pour le moment</span>}
             </section>
         </Layout>
     )
