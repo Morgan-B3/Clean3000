@@ -5,6 +5,7 @@ import clients from "../clients";
 const initialState ={
     notices: JSON.parse(localStorage.getItem("notices")) || [],
     clients: JSON.parse(localStorage.getItem("clients")) || clients,
+    isMobile: window.innerWidth < 720 ? true : false,
 }
 
 const dataSlice = createSlice({
@@ -28,10 +29,13 @@ const dataSlice = createSlice({
             const index = state.notices.findIndex(notice => notice.id == payload);
             state.notices.splice(index, 1);
             localStorage.setItem("notices", JSON.stringify([...state.notices]));
+        },
+        setIsMobile: (state, {payload}) => {
+            state.isMobile = payload;
         }
     }
 })
 
-export const { addNotice, addClient, removeNotice } = dataSlice.actions;
+export const { addNotice, addClient, removeNotice, setIsMobile } = dataSlice.actions;
 
 export default dataSlice.reducer;
