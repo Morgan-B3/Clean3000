@@ -18,29 +18,35 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 header {
-  background-color: #3D3D3D;
+  background-color: #3d3d33;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   padding: 1rem;
   position: relative;
-}
-.back-button{
-  position: absolute;
-  left: 1rem;
-  display: flex;
-  align-items: center;
-}
-.back-button:hover, img:hover{
-  cursor: pointer;
-}
 
 .back{
   visibility: hidden;
   font-size: 4rem;
+
+  .back-button{
+    position: absolute;
+    left: 5rem;
+  }
+  .back-button:hover, img:hover{
+    cursor: pointer;
+  }
+  div{
+    display: flex;
+    justify-content: center;
+  }
+
 }
 
+.logo-mini{
+  width: 19%;
+}
 
 main{
   padding: 5rem;
@@ -197,7 +203,7 @@ button{
 }
 
 .noticeItem{
-  background-color: #3D3D3D;
+  background-color: #3d3d33;
   color: white;
   border-radius: 1rem;
   padding: 1rem;
