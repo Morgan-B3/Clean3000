@@ -28,16 +28,12 @@ export const NewNotice = () => {
           ].join('-');
     }
 
-    const id = Date.now();
     const [isNewClient, setIsNewClient] = useState(false);
-    const [newClient, setNewClient] = useState("");
-    const [observation, setObservation] = useState("");
-    const [date, setDate] = useState(formatDate());
     const [notice, setNotice] = useState({
-        id,
+        id: Date.now(),
         client: "",
-        date,
-        observation,
+        date: formatDate(),
+        observation: "",
     });
 
     const clientsOptions = clients.map((client, index) => {
@@ -47,66 +43,33 @@ export const NewNotice = () => {
     })
 
     const handleChangeClient = (e)=> {
-        const id = e.target.value;
-        if (id === "new"){
+        const idClient = e.target.value;
+        if (idClient === "new"){
             setIsNewClient(true);
         } else {
             setIsNewClient(false);
-            setNotice(prevState =>({
-                ...prevState,
-                client: clients[id],
-            }));
+            setNotice({
+                ...notice,
+                client: clients[idClient],
+            });
         }
     }
 
-    const handleChangeNewClient = (value) => {
-        setNewClient(value);
-        setNotice(prevState =>({
-            ...prevState,
-            client: value,
-        }));
-    }
-
-    const handleChangeDate = (value)=>{
-        setDate(value);
-        setNotice(prevState =>({
-            ...prevState,
-            date: value,
-        }))
-    }
-
-    const handleChangeObservation = (value) =>{
-        setObservation(value);
-        setNotice(prevState=>({
-            ...prevState,
-            observation: value,
-        }))
-    }
-    
-
-    const redirect = ()=>{
-        dispatch(addNotice(notice))
-        navigate(`/avis/${notice.id}`)
-    }
+    const handleChangeNotice = (target)=>{
+        setNotice({
+            ...notice,
+            [target.name]: target.value,
+        })
+    }    
 
     const validate = (e)=>{
         e.preventDefault();
         if(isNewClient){
-            setNotice(prevState=>({
-                ...prevState,
-                client: newClient,
-            }))
-            dispatch(addClient(newClient));
+            dispatch(addClient(notice.client));
         }
-      
-        setNotice(prevState=>({
-            ...prevState,
-            observation: observation || "Pas d'observations.",
-        }));
-        console.log(notice);
-        redirect();
+        dispatch(addNotice(notice))
+        navigate(`/avis/${notice.id}`)
     }
-
 
     return (
         <Layout>
@@ -125,28 +88,24 @@ export const NewNotice = () => {
                                 </select>
                             </div>
 
-
                             { isNewClient ? 
                             <div className='field'>
                                 <label htmlFor="newClient">Saisir le nom du nouveau client / entreprise* :</label>
-                                <input id='newClient' name='newClient' type="text" value={newClient} onChange={(e)=>handleChangeNewClient(e.target.value)} required />
+                                <input id='newClient' name='client' type="text" value={notice.client} onChange={(e)=>handleChangeNotice(e.target)} required />
                             </div> 
                             : "" }
                         </div>
 
-
                         <div className='field'>
                             <label htmlFor="date">Date d'intervention* :</label>
-                            <input id='date' name='date' type="date" value={notice.date} onChange={(e)=>handleChangeDate(e.target.value)} required />
+                            <input id='date' name='date' type="date" value={notice.date} onChange={(e)=>handleChangeNotice(e.target)} required />
                         </div>
                     </div>
 
-
                     <div className='field'>
-                        <label htmlFor="observations">Observations :</label>
-                        <textarea name="observations" id="observations" cols="30" rows="10" placeholder="Pas d'obeservations." value={notice.observation} onChange={(e)=>handleChangeObservation(e.target.value)}></textarea>
+                        <label htmlFor="observation">Observations :</label>
+                        <textarea name="observation" id="observation" cols="30" rows="10" placeholder="Pas d'obeservations." value={notice.observation} onChange={(e)=>handleChangeNotice(e.target)}></textarea>
                     </div>
-
 
                     <div className='form-bottom'>
                         <div className='flex-evenly'>

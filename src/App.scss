@@ -26,10 +26,6 @@ header {
   padding: 1rem;
   position: relative;
 
-.back{
-  visibility: hidden;
-  font-size: 4rem;
-
   .back-button{
     position: absolute;
     left: 5rem;
@@ -40,8 +36,13 @@ header {
   div{
     display: flex;
     justify-content: center;
+    align-items: center;
   }
+}
 
+.back{
+  visibility: hidden;
+  font-size: 4rem;
 }
 
 .logo-mini{
@@ -73,17 +74,23 @@ b{
   gap: 2rem;
   text-wrap: wrap;
   word-wrap: break-word;
-  input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 1rem;
-    border: solid 1px #666666 ;
-  }
+}
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 input, textarea, select, .sign {
   border-radius: 1rem;
-  border: solid 1px #666666 ;
+  border: solid 1px ;
+}
+input:focus, textarea:focus, select:focus {
+  border: solid 1px #55AB41;
 }
 
 
@@ -92,15 +99,6 @@ input, textarea, select, .sign {
   flex-direction: column;
   gap: 0.7rem;
 }
-
-// input[type="date"]::-webkit-calendar-picker-indicator {
-//   color: #55AB41;
-//   width: 20px;
-//   height: 20px;
-//   &:hover{
-//     cursor: pointer;
-//   }
-// }
 
 textarea{
   min-width: 100%;
@@ -255,9 +253,7 @@ button{
       width: 50%;
     }
   }
-  .back{
-    visibility: visible;
-  }
+
   button{
     width: fit-content;
     padding: 2rem;
@@ -278,6 +274,10 @@ button{
     padding: 5rem 30rem;
     position: relative;
   }
+  .back{
+    visibility: visible;
+  }
+
   .back-button{
     left: 10rem;
   }

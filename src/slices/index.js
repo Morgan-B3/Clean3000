@@ -5,7 +5,7 @@ import clients from "../clients";
 const initialState ={
     notices: JSON.parse(localStorage.getItem("notices")) || [],
     clients: JSON.parse(localStorage.getItem("clients")) || clients,
-    isMobile: window.innerWidth < 720 ? true : false,
+    isMobile: window.innerWidth < 800 ? true : false,
 }
 
 const dataSlice = createSlice({

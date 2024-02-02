@@ -10,7 +10,7 @@ const Header = ({isHome = false}) => {
   const isMobile = useSelector(state=>state.data.isMobile);
 
   const handleResize = () => {
-    if (window.innerWidth < 720) {
+    if (window.innerWidth < 800) {
       dispatch(setIsMobile(true));
     } else {
       dispatch(setIsMobile(false));
@@ -26,7 +26,7 @@ const Header = ({isHome = false}) => {
   return (
     <header>
 
-      {!isHome ? <BiLeftArrowAlt size="8rem" className="back-button" onClick={() => navigate('/')} /> : ""}
+      {!isHome ? <div className="back-button" onClick={() => navigate('/')} ><BiLeftArrowAlt size="8rem"/><div className='back'>Retour</div></div> : ""}
       <div>
         {!isHome ? !isMobile ? <img src={require("../img/logo-clean3000-transparent.png")} alt="" onClick={()=>navigate('/')} /> : <img className='logo-mini' src={require("../img/logo-clean3000-mini.png")} alt="" onClick={()=>navigate('/')} /> : <img src={require("../img/logo-clean3000-transparent.png")} alt="" onClick={()=>navigate('/')} />}
       </div>
