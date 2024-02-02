@@ -25,10 +25,12 @@ const Header = ({isHome = false}) => {
   console.log(window.innerWidth);
   return (
     <header>
+
       {!isHome ? <BiLeftArrowAlt size="8rem" className="back-button" onClick={() => navigate('/')} /> : ""}
       <div>
         {!isHome ? !isMobile ? <img src={require("../img/logo-clean3000-transparent.png")} alt="" onClick={()=>navigate('/')} /> : <img className='logo-mini' src={require("../img/logo-clean3000-mini.png")} alt="" onClick={()=>navigate('/')} /> : <img src={require("../img/logo-clean3000-transparent.png")} alt="" onClick={()=>navigate('/')} />}
       </div>
+
     </header>
   )
 }
