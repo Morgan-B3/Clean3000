@@ -134,16 +134,11 @@ textarea{
   }
 }
 
-.flex-evenly{
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-evenly;
-}
 
 .sign{
   border: solid 1px black;
   padding: 5rem;
-  width: 200px;
+  width: 300px;
   background-color: white;
 }
 .text-center{
@@ -252,6 +247,16 @@ button{
     >*{
       width: 50%;
     }
+  }
+
+  .sign{
+    width: 200px;
+  }
+
+  .flex-evenly{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
   }
 
   button{
