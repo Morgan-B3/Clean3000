@@ -104,7 +104,7 @@ export const NewNotice = () => {
 
                     <div className='field'>
                         <label htmlFor="observation">Observations :</label>
-                        <textarea name="observation" id="observation" cols="30" rows="10" placeholder="Pas d'obeservations." value={notice.observation} onChange={(e)=>handleChangeNotice(e.target)}></textarea>
+                        <textarea name="observation" id="observation" cols="30" rows="10" placeholder="Pas d'observations." value={notice.observation} onChange={(e)=>handleChangeNotice(e.target)}></textarea>
                     </div>
 
                     <div className='form-bottom'>
